@@ -1,0 +1,7 @@
+# carpetas
+node_modules/
+logs/
+
+#archivos
+*.txt
+*.log
