@@ -1,0 +1,22 @@
+.atFront{
+    @extend .p-fixed;
+    z-index: 2;
+}
+footer{
+    @extend .p-relative;
+    min-height: 480px;
+    background: linear-gradient(#6668, #3338);
+    #map{
+        @extend .cover;
+        & + button{
+            @extend .p-absolute, .top-0, .right-0;
+            @include box(1.5rem, .5rem, 1px solid, $pa: min-width);
+        }
+        &.active{
+            @extend .atFront;
+            & + button{
+                @extend .atFront;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+$positions: static, relative, absolute, fixed, sticky;
+$directions: top, left, bottom, right;
+$translate: X, Y;
+@each $p in $positions {
+    .p-#{$p}{
+        position: $p;
+    }
+}
+@for $i from 0 through 10 {
+    @each $d in $directions {
+        $coord: $i * 10;
+        $ncoord: $coord * -1%;
+        .#{$d}-#{$i * 10}{
+            #{$d}: $coord * 1%;
+        }
+        .translate{
+            translate: var(--x) var(--y);    
+            @each $t in $translate{
+            &#{$t}-#{$coord}{
+                --#{$t}: #{$ncoord};
+            }}
+        }
+    }
+}
