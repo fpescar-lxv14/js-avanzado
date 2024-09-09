@@ -1,3 +1,639 @@
+.p-static {
+  position: static;
+}
+
+.p-relative, footer {
+  position: relative;
+}
+
+.p-absolute, footer #map + button {
+  position: absolute;
+}
+
+.p-fixed, .atFront, footer #map.active + button, footer #map.active {
+  position: fixed;
+}
+
+.p-sticky {
+  position: sticky;
+}
+
+.top-0, footer #map + button {
+  top: 0%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-0 {
+  --X: 0%;
+}
+.translateY-0 {
+  --Y: 0%;
+}
+
+.left-0 {
+  left: 0%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-0 {
+  --X: 0%;
+}
+.translateY-0 {
+  --Y: 0%;
+}
+
+.bottom-0 {
+  bottom: 0%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-0 {
+  --X: 0%;
+}
+.translateY-0 {
+  --Y: 0%;
+}
+
+.right-0, footer #map + button {
+  right: 0%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-0 {
+  --X: 0%;
+}
+.translateY-0 {
+  --Y: 0%;
+}
+
+.top-10 {
+  top: 10%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-10 {
+  --X: -10%;
+}
+.translateY-10 {
+  --Y: -10%;
+}
+
+.left-10 {
+  left: 10%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-10 {
+  --X: -10%;
+}
+.translateY-10 {
+  --Y: -10%;
+}
+
+.bottom-10 {
+  bottom: 10%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-10 {
+  --X: -10%;
+}
+.translateY-10 {
+  --Y: -10%;
+}
+
+.right-10 {
+  right: 10%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-10 {
+  --X: -10%;
+}
+.translateY-10 {
+  --Y: -10%;
+}
+
+.top-20 {
+  top: 20%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-20 {
+  --X: -20%;
+}
+.translateY-20 {
+  --Y: -20%;
+}
+
+.left-20 {
+  left: 20%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-20 {
+  --X: -20%;
+}
+.translateY-20 {
+  --Y: -20%;
+}
+
+.bottom-20 {
+  bottom: 20%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-20 {
+  --X: -20%;
+}
+.translateY-20 {
+  --Y: -20%;
+}
+
+.right-20 {
+  right: 20%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-20 {
+  --X: -20%;
+}
+.translateY-20 {
+  --Y: -20%;
+}
+
+.top-30 {
+  top: 30%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-30 {
+  --X: -30%;
+}
+.translateY-30 {
+  --Y: -30%;
+}
+
+.left-30 {
+  left: 30%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-30 {
+  --X: -30%;
+}
+.translateY-30 {
+  --Y: -30%;
+}
+
+.bottom-30 {
+  bottom: 30%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-30 {
+  --X: -30%;
+}
+.translateY-30 {
+  --Y: -30%;
+}
+
+.right-30 {
+  right: 30%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-30 {
+  --X: -30%;
+}
+.translateY-30 {
+  --Y: -30%;
+}
+
+.top-40 {
+  top: 40%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-40 {
+  --X: -40%;
+}
+.translateY-40 {
+  --Y: -40%;
+}
+
+.left-40 {
+  left: 40%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-40 {
+  --X: -40%;
+}
+.translateY-40 {
+  --Y: -40%;
+}
+
+.bottom-40 {
+  bottom: 40%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-40 {
+  --X: -40%;
+}
+.translateY-40 {
+  --Y: -40%;
+}
+
+.right-40 {
+  right: 40%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-40 {
+  --X: -40%;
+}
+.translateY-40 {
+  --Y: -40%;
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-50 {
+  --X: -50%;
+}
+.translateY-50 {
+  --Y: -50%;
+}
+
+.left-50 {
+  left: 50%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-50 {
+  --X: -50%;
+}
+.translateY-50 {
+  --Y: -50%;
+}
+
+.bottom-50 {
+  bottom: 50%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-50 {
+  --X: -50%;
+}
+.translateY-50 {
+  --Y: -50%;
+}
+
+.right-50 {
+  right: 50%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-50 {
+  --X: -50%;
+}
+.translateY-50 {
+  --Y: -50%;
+}
+
+.top-60 {
+  top: 60%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-60 {
+  --X: -60%;
+}
+.translateY-60 {
+  --Y: -60%;
+}
+
+.left-60 {
+  left: 60%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-60 {
+  --X: -60%;
+}
+.translateY-60 {
+  --Y: -60%;
+}
+
+.bottom-60 {
+  bottom: 60%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-60 {
+  --X: -60%;
+}
+.translateY-60 {
+  --Y: -60%;
+}
+
+.right-60 {
+  right: 60%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-60 {
+  --X: -60%;
+}
+.translateY-60 {
+  --Y: -60%;
+}
+
+.top-70 {
+  top: 70%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-70 {
+  --X: -70%;
+}
+.translateY-70 {
+  --Y: -70%;
+}
+
+.left-70 {
+  left: 70%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-70 {
+  --X: -70%;
+}
+.translateY-70 {
+  --Y: -70%;
+}
+
+.bottom-70 {
+  bottom: 70%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-70 {
+  --X: -70%;
+}
+.translateY-70 {
+  --Y: -70%;
+}
+
+.right-70 {
+  right: 70%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-70 {
+  --X: -70%;
+}
+.translateY-70 {
+  --Y: -70%;
+}
+
+.top-80 {
+  top: 80%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-80 {
+  --X: -80%;
+}
+.translateY-80 {
+  --Y: -80%;
+}
+
+.left-80 {
+  left: 80%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-80 {
+  --X: -80%;
+}
+.translateY-80 {
+  --Y: -80%;
+}
+
+.bottom-80 {
+  bottom: 80%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-80 {
+  --X: -80%;
+}
+.translateY-80 {
+  --Y: -80%;
+}
+
+.right-80 {
+  right: 80%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-80 {
+  --X: -80%;
+}
+.translateY-80 {
+  --Y: -80%;
+}
+
+.top-90 {
+  top: 90%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-90 {
+  --X: -90%;
+}
+.translateY-90 {
+  --Y: -90%;
+}
+
+.left-90 {
+  left: 90%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-90 {
+  --X: -90%;
+}
+.translateY-90 {
+  --Y: -90%;
+}
+
+.bottom-90 {
+  bottom: 90%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-90 {
+  --X: -90%;
+}
+.translateY-90 {
+  --Y: -90%;
+}
+
+.right-90 {
+  right: 90%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-90 {
+  --X: -90%;
+}
+.translateY-90 {
+  --Y: -90%;
+}
+
+.top-100 {
+  top: 100%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-100 {
+  --X: -100%;
+}
+.translateY-100 {
+  --Y: -100%;
+}
+
+.left-100 {
+  left: 100%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-100 {
+  --X: -100%;
+}
+.translateY-100 {
+  --Y: -100%;
+}
+
+.bottom-100 {
+  bottom: 100%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-100 {
+  --X: -100%;
+}
+.translateY-100 {
+  --Y: -100%;
+}
+
+.right-100 {
+  right: 100%;
+}
+
+.translate {
+  translate: var(--x) var(--y);
+}
+.translateX-100 {
+  --X: -100%;
+}
+.translateY-100 {
+  --Y: -100%;
+}
+
 .zero, nav ul, body {
   margin: 0;
   border: 0;
@@ -23,6 +659,15 @@
   background-color: var(--color);
 }
 
+.cover, footer #map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .link, nav a {
   text-decoration: none;
   color: #eee;
@@ -44,7 +689,7 @@ nav {
   align-content: center;
   flex-wrap: wrap;
   text-shadow: 0 0 0.25rem #333;
-  background: #fc0 linear-gradient(#fa2A, #c60A);
+  background: #fc0 linear-gradient(rgba(255, 170, 34, 0.6666666667), rgba(204, 102, 0, 0.6666666667));
 }
 @media screen and (width >= 768px) {
   nav button {
@@ -67,3 +712,19 @@ nav ul.active {
     max-height: 100vh;
   }
 }
+
+.atFront, footer #map.active + button, footer #map.active {
+  z-index: 2;
+}
+
+footer {
+  min-height: 480px;
+  background: linear-gradient(rgba(102, 102, 102, 0.5333333333), rgba(51, 51, 51, 0.5333333333));
+}
+footer #map + button {
+  margin: 0.5rem;
+  border: 1px solid;
+  min-width: 1.5rem;
+}
+
+/*# sourceMappingURL=default.css.map */
