@@ -61,3 +61,13 @@ document.addEventListener('click', (event) => {
             return
     }
 })
+
+const carrito = new EventTarget()
+function addToChart (data) {   
+    const agregar = new Event('agregar');
+    carrito.addEventListener(agregar, () => {
+        carrito.push(data)
+    })
+    carrito.dispatchEvent('agregar');
+    carrito.removeEventListener(agregar);   
+}

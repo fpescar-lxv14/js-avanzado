@@ -14,11 +14,11 @@
   position: fixed;
 }
 
-.p-sticky {
+.p-sticky, nav {
   position: sticky;
 }
 
-.top-0, footer #map + button {
+.top-0, footer #map + button, nav {
   top: 0%;
 }
 
@@ -718,6 +718,7 @@ nav ul.active {
 }
 
 footer {
+  padding: 0.5rem;
   min-height: 480px;
   background: linear-gradient(rgba(102, 102, 102, 0.5333333333), rgba(51, 51, 51, 0.5333333333));
 }
@@ -725,6 +726,17 @@ footer #map + button {
   margin: 0.5rem;
   border: 1px solid;
   min-width: 1.5rem;
+}
+footer form {
+  margin: 5rem auto;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  max-width: 480px;
+  display: none;
+  background-color: rgba(238, 238, 238, 0.6666666667);
+}
+footer form:target {
+  display: grid;
 }
 
 /*# sourceMappingURL=default.css.map */
