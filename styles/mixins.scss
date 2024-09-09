@@ -1,0 +1,5 @@
+@mixin box($p:0,$m:0,$b:0,$ba:border,$pa:padding,$ma:margin){
+    #{$ma}:$m;
+    #{$ba}:$b;
+    #{$pa}:$p;
+}

@@ -1,0 +1,38 @@
+$size: unquote('max(calc(50vw - 660px),.5rem)');
+
+body{
+    @extend .zero;
+}
+nav{
+    @include box(.5rem $size);
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    text-shadow: 0 0 .25rem #333;
+    background: #fc0 linear-gradient(#fa2A, #c60A);
+    a{
+        @extend .link;
+    }
+    button{
+        @extend .button;
+        @media screen and (width >= 768px) {
+            display: none;
+        }
+    }
+    ul{
+        @extend .zero;
+        max-height: 0;
+        width: 100%;
+        overflow: hidden;
+        &.active{
+            max-height: 100vh;
+        }
+        @media screen and (width >= 768px) {
+            width: auto;
+            display: flex;
+            align-items: center;
+            max-height: 100vh;
+        }
+    }
+}
