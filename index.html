@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,11 @@
 <body>
     <nav>
         <a href="#">JSAv</a>
-        <button id="menu">&equiv;</button>
+        <button id="menu" 
+            data-target="#menuList" 
+            data-toggle="active">
+            &equiv;
+        </button>
         <ul id="menuList">
             <li><a href="#">link 1</a></li>
             <li><a href="#">link 2</a></li>
@@ -21,19 +25,33 @@
         <h1>Javascript Desarrollador Avanzado</h1>
         <form action="">
             <input type="search">
-            <button id="search">Buscar</button>
+            <button id="search" data-target="input" data-select="search">Buscar</button>
         </form>
     </header>
     <main>
         <h2>BOM</h2>
         <p>
             Browser Object Model corresponde a un objeto que posee todas las caracteristicas y metodos que afectan a la ventana del navegador, como sus dimensiones, version del mismo, dispositivos disponibles, entre otras APIs. Tambien incluye al objeto DOCUMENT.
+            <button>Ver Mas</button>
         </p>
         <h2>DOM</h2>
         <p>
             Document Object Model corresponde a una estructura en forma de arbol que registra todos los nodos de la pagina, facilitando la captura de los mismos para la ejecucion de eventos.
+            <button>Ver Mas</button>
         </p>
     </main>
+    <footer>
+        <iframe id="map" class="cover"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.070111975206!2d-58.378511025212944!3d-34.60238855742641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacc473596c3%3A0x568d6d5f7f1f535d!2sEducaci%C3%B3nIT!5e0!3m2!1ses-419!2sar!4v1725901910928!5m2!1ses-419!2sar" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <button id="mapButton" 
+            data-target="#map" 
+            data-toggle="active">
+            +
+        </button>
+    </footer>
     <script src="scripts/index.js"></script>
 </body>
 </html>
