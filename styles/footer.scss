@@ -4,6 +4,7 @@
 }
 footer{
     @extend .p-relative;
+    padding: .5rem;
     min-height: 480px;
     background: linear-gradient(#6668, #3338);
     #map{
@@ -17,6 +18,15 @@ footer{
             & + button{
                 @extend .atFront;
             }
+        }
+    }
+    form{
+        @include box(1.5rem, 5rem auto, .5rem, border-radius);
+        max-width: 480px;
+        display: none;
+        background-color: #eeeA;
+        &:target{
+            display: grid;
         }
     }
 }
