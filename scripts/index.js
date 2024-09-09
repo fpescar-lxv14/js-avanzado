@@ -35,21 +35,29 @@ console.log(texto, objeto, textoCopia, objetoCopia,)
  *  fase 2 (Target) : Javascript encuentra el nodo afectado/disparado el evento llevado a cabo.
  *  fase 3 (Bubbling): Javascript recorre en sentido inverso el arbol DOM, desde el nodo objetivo, hasta el objeto WINDOW
  */
-const toggle = (selector, className="active") => 
+const toggle = (selector, className) => 
     document.querySelector(selector)
     .classList.toggle(className)
 
+const select = (e) => console.log(e)
+
 document.addEventListener('click', (event) => {
     event.stopPropagation();
-    const { id, tagName } = event.target
+    const {target} = event
+    const { id, tagName } = target
+    const get = (value) => target.getAttribute(value)
+    const ds = (attr) => target.dataset[attr]
     switch(tagName){
         case "INPUT":
         case "BUTTON":
             event.preventDefault();
-            if (id === "menu") toggle("#menuList")            
-        break;
+            if (get('data-target')){
+                get('data-toggle') && toggle(ds('target'),ds('toggle'))
+                get('data-select') && select(event);
+            }
+            return
         case "A":
             console.log("no soy un boton")
-        break;
+            return
     }
 })
