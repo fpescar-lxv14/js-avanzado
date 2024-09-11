@@ -43,14 +43,13 @@ const select = (e) => console.log(e)
 
 document.addEventListener('click', (event) => {
     event.stopPropagation();
-    const {target} = event
-    const { id, tagName } = target
+    const { target } = event
+    const { tagName } = target
     const get = (value) => target.getAttribute(value)
     const ds = (attr) => target.dataset[attr]
     switch(tagName){
         case "INPUT":
         case "BUTTON":
-            event.preventDefault();
             if (get('data-target')){
                 get('data-toggle') && toggle(ds('target'),ds('toggle'))
                 get('data-select') && select(event);
@@ -61,6 +60,23 @@ document.addEventListener('click', (event) => {
             return
     }
 })
+const events = ['click', 'input','keydown','keypress', 'keyup', 'submit','focus','blur','bubbles']
+
+events.forEach(ev => document.addEventListener(ev, () => {
+    console.log("disparaste el evento "+ev);
+}))
+
+document.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formData = new FormData()
+    const controls = e.target.querySelectorAll('input, textarea, select')
+    controls.forEach(ctl => {
+        validate(ctl) && formData.append(ctl.name, ctl.value)
+    })
+})
+document.addEventListener('input', ({target}) => {
+    console.log(target, target.value, target.checkValidity())
+})
 
 const carrito = new EventTarget()
 function addToChart (data) {   
@@ -70,4 +86,36 @@ function addToChart (data) {
     })
     carrito.dispatchEvent('agregar');
     carrito.removeEventListener(agregar);   
+}
+
+/* Expresiones Regulares
+
+    Clases
+    \w caracteres  | \W todo excepto caracteres    
+    \d digitos     | \D todo excepto digitos
+    \s espacios    | \S todo excepto espacios
+    [abc] cualquiera de los caracteres
+    (abc) grupo de caracteres
+    a|b opcional
+
+    Cuantificadores
+    . un caracter
+    + uno o mas repeticiones
+    * una, ninguna o varias repeticiones
+    {n} cantidad fija de repeticiones
+    {n,} por lo menos n repeticiones
+    {n,m} entre n y m repeticiones
+
+    Posicion
+    ^ empieza con
+    $ termina con
+    \b al principio o al final de una cadena
+
+    correo = /\S+@\S{2,}\.\w{2,}/
+*/
+function validate(object){
+    const { type, value, innerText } = object
+    let regexp = /\w{5,100}/
+    
+    return regexp.test(value ?? innerText);
 }
