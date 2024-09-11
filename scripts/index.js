@@ -155,7 +155,7 @@ function validate(object){
             */
         break;
         case "password":
-            regexp = /^((?=[A-Z])(?=[a-z])(?=[0-9])(?=[$_\-!.:#]))${8,}/
+            regexp = /(^(?=.[A-Z])+(?=.[a-z])+(?=.[0-9])+(?=.[$_\-!.:#])+$){8,}/
         break;
     }
     return regexp.test(value ?? innerText);
