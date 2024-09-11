@@ -53,48 +53,92 @@
         </button>
         <form id="contact">
             <h2>Dejanos tu consulta</h2>
-            <label for="contactName">nombre</label>
-            <input 
-                id="contactName" 
-                name="name" 
-                type="text" 
+            <label for="contactName">nombre completo</label>
+            <input id="contactName"
+                name="name"
+                type="text"
+                minlength="5"
+                maxlength="100"
+                placeholder="Cristian Damian Racedo"
+                title="ingrese entre 5 y 100 caracteres"
                 required>
             <label for="contactPhone">telefono</label>
-            <input 
-                id="contactPhone" 
-                name="phone" 
-                type="tel">
+            <input id="contactPhone"
+                name="phone"
+                type="tel"
+                minlength="6"
+                maxlength="20"
+                placeholder="(5411)0303-4567">
             <label for="contactSubject">asunto</label>
-            <input 
-                id="contactSubject" 
-                name="subject" 
-                type="text" 
+            <input id="contactSubject"
+                name="subject"
+                type="text"
+                minlength="2"
+                maxlength="20"
+                placeholder="html | css | js | bootstrap"
                 required>
             <label for="contactConsult">consulta</label>
-            <textarea 
-                name="consult" 
-                id="contactConsult" 
+            <textarea id="contactConsult"
+                name="consult"
+                minlength="30"
+                maxlength="1500"
+                placeholder="Buenas, necesito hacer una consulta sobre..."
                 required></textarea>
             <button>Enviar</button>
         </form>
         <form id="signin">
             <h2>Completa tus datos</h2>
             <label for="signUser">usuario</label>
-            <input id="signUser" name="username" type="text">
+            <input id="signUser" 
+                name="username"
+                type="text"
+                minlength="6"
+                maxlength="20"
+                placeholder="@c215174n"
+                required>
             <label for="signEmail">correo</label>
-            <input id="signEmail" name="email" type="email">
+            <input id="signEmail" 
+                name="email" 
+                type="email"
+                minlength="8"
+                placeholder="CristianDRacedo@hotmail.com"
+                required>
             <label for="signPass1">contraseña</label>
-            <input id="signPass1" name="password" type="password">
+            <input id="signPass1"
+                name="password"
+                type="password"
+                minlength="8"
+                maxlength="20"
+                placeholder="Abcde12345!#"
+                required>
             <label for="signPass2">repita la contraseña</label>
-            <input id="signPass2" name="password" type="password">
+            <input id="signPass2"
+                name="password"
+                type="password"
+                minlength="8"
+                maxlength="20"
+                placeholder="Abcde12345!#"
+                required>
             <button>Registrarse</button>
         </form>
         <form id="login">
             <h2>Iniciar Sesion</h2>
             <label for="loginUser">usuario o correo</label>
-            <input id="loginUser" name="username" type="text">
+            <input id="loginUser" 
+                name="username" 
+                type="text"
+                minlength="6"
+                maxlength="20"
+                placeholder="@c215714n"
+                required>
             <label for="loginPass">contraseña</label>
-            <input id="loginPass" name="password" type="password">
+            <input id="loginPass" 
+                name="password" 
+                type="password"
+                minlength="8"
+                maxlength="20"
+                placeholder="Abcde12345!#"
+                required>
             <button>Ingresar</button>
         </form>
     </footer>
