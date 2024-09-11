@@ -5,6 +5,7 @@ body{
 }
 nav{
     @extend .p-sticky, .top-0;
+    z-index: 1;
     @include box(.5rem $size);
     display: flex;
     justify-content: space-between;

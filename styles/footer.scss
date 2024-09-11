@@ -28,5 +28,16 @@ footer{
         &:target{
             display: grid;
         }
+        :is(input,textarea){
+            @include box(.5rem 1rem, none, 1px solid #333, $ma: outline);
+            &:focus{
+                &:valid{
+                    border-color: #3c6;
+                }
+                &:not(:placeholder-shown):invalid{
+                    border-color: #c33;
+                }
+            }
+        }
     }
 }
