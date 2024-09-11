@@ -62,8 +62,9 @@ document.addEventListener('click', (event) => {
 })
 const events = ['click', 'input','keydown','keypress', 'keyup', 'submit','focus','blur','bubbles']
 
-events.forEach(ev => document.addEventListener(ev, () => {
+events.forEach(ev => document.addEventListener(ev, (e) => {
     console.log("disparaste el evento "+ev);
+    console.log("el valor es "+e.target.value)
 }))
 
 document.addEventListener('submit', (e) => {
@@ -115,7 +116,47 @@ function addToChart (data) {
 */
 function validate(object){
     const { type, value, innerText } = object
-    let regexp = /\w{5,100}/
-    
+    let regexp = /^\w{5,100}$/
+    switch (type){
+        case "date": 
+        case "time":
+            const today = new Date()
+            const userDate = new Date(value)
+            if (today.getFullYear() < userDate.getFullYear() )return false
+            regexp = /(\d{2}[/\-:]{1}){2}\d{2,4}/
+            /* 
+            31/12/1991
+            01/02/80
+            07:50:0000
+            */
+        break;
+        case "day":
+            regexp = /(?=0[1-9])(?=[1-2][0-9])(?=3[0-1])/
+        break;
+        case "email":
+            regexp = /^\w+@\w+(\.\w{2,}){1,4}$/
+            /** ejemplos validos
+                cristiandracedo@hotmail.com
+                usuario@subdominio.com.ar
+                prueba@test.net
+                mail12345@nomail.com.ar
+            */
+        break;
+        case "tel":
+            regexp = /(^\(\d{2,6}\)\s*(\d{2,4}[\- ]*){1,4}\d{4}$)|^[0-9]{6,20}$/
+            /* ejemplos validos
+                (5411)0303-4567
+                (5411)03-03-4567
+                (5411)0303 4567
+                (5411)03 03 4567
+                (02224)030-4567
+                (54)11-03-03-4567
+                541103034567 
+            */
+        break;
+        case "password":
+            regexp = /^((?=[A-Z])(?=[a-z])(?=[0-9])(?=[$_\-!.:#]))${8,}/
+        break;
+    }
     return regexp.test(value ?? innerText);
 }
