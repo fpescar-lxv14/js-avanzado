@@ -139,3 +139,41 @@ Una de las intenciones de JavaScript con la creación del patrón de propagació
 1. __capture phase:__ El evento empieza con la propagacion del evento padre, el objeto de window y luego baja por los demás elementos internos.
 1. __target phase:__ La segunda fase corresponde cuando se llega al elemento sobre el que se realizo la accion, identificado como _event.target_
 1. __bubbling phase:__ El evento se propaga hasta llegar nuevamente al elemento padre superior, aunque el evento no se vuelve a ser llamado.
+
+## Expresiones Regulares
+
+Son patrones que se utilizan para hacer coincidir combinaciones de caracteres en cadenas. En JavaScript, las expresiones regulares también son objetos. Los patrones simples se construyen con caracteres para los que deseas encontrar una coincidencia directa, estos pueden pertenecer a los siguientes tipos:
+
+### Caracteres
+
+Son valores reservados que se utilizan para distinguir entre diferentes tipos de caracteres o su opuesto en caso que se escriba en mayusculas o se incorpore el signo de potencia dentro del selector.
+
+| clase | coincidencia | opuesto |
+|-|-|-|
+| __\w__    | palabras | __\W__
+| __\d__    | digitios | __\D__
+| __\s__    | espacios | __\S__
+| __[ABC]__ | conjunto | __[^ABC]__
+
+### Cuantificadores
+
+Correponde a signos que indican grupos y rangos de caracteres de la expresion, se utilizan inmediatamente despues de la referencia. Tambien indican la cantidad de repeticiones que deben coincidir.
+
+| cuantificador | coincidencia|
+|-|-|
+| __?__     | cero o una repeticion
+| __+__     | una o mas repeticiones
+| __*__     | cero o mas repeticiones
+| __\|__    | alternacion de caracteres
+| __{n,m}__ | min. y max. de repeticiones
+
+### Ascerciones
+
+Establecen los límites que indican el comienzo y el final de líneas y palabras de la expresion. Asi como otros patrones que indican de alguna manera que el reconocimiento es posible.
+
+| posicion  | coincidencia |
+|-|-|
+| __^__     | principio de una linea
+| __$__     | final de una linea
+| __\b__    | perimetro de una cadena
+| __\B__    | no esta en el perimetro
