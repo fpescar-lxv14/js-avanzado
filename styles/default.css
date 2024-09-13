@@ -1,0 +1,15 @@
+nav ul{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: .5rem;
+  list-style: none;
+}
+[data-link]{
+  border: none;
+  background-color: unset;
+  opacity: .8;
+}
+[data-link]:hover{
+  opacity: 1;
+}

@@ -4,6 +4,11 @@ function ajax(url, callback){
     // 1: carga de solicitud
     xhr.open("GET", url)
     // 3-4: procesamiento y finalizacion
+    xhr.addEventListener('progress', (e) => {
+        if (e.lengthComputable){
+            return (`${e.loaded}/${e.total}`)
+        }
+    })
     xhr.addEventListener('readystatechange', () => {
         if (xhr.readyState === 4){
             if (xhr.status < 400) 
