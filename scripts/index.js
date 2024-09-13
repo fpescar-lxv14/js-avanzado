@@ -1,22 +1,6 @@
+import ajax from "./callback.js"
+import { ajaxPromise } from "./promise.js";
 const root = document.getElementById('root');
-
-const ajax = ({url, method = "GET", callback}) => {
-    const xhr = new XMLHttpRequest()
-    xhr.open(method,url)
-    xhr.addEventListener('readystatechange', () => {
-        if(xhr.readyState === 4) {
-            if (xhr.status === 200){
-                const data = JSON.parse(xhr.response)
-                callback(data)
-            }
-            else callback([{
-                error: 404,
-                message: "no se ha encontrado la pagina"
-            }])
-        }
-    })
-    xhr.send()
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     const server = "https://jsonplaceholder.typicode.com"

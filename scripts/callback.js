@@ -16,8 +16,9 @@ const ajax = ({url, method = "GET", callback}) => {
     xhr.send()
 }
 // callback Hell | Pyramid of Doom
+const server = "https://jsonplaceholder.typicode.com"
 ajax({
-    url: `${server}/${posts}`,
+    url: `${server}/posts`,
     callback: (posts) => {
         if (posts.length){ 
             posts.map(post => {
@@ -41,3 +42,5 @@ ajax({
         }
     }
 })
+
+export default ajax;

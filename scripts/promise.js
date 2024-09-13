@@ -1,5 +1,5 @@
-const ajax = ({url, method = "GET"}) => {
-    const promise = new Promise(resolve, reject)
+export const ajaxPromise = ({url, method = "GET"}) => {
+    return new Promise ((resolve, reject) => {
     const xhr = new XMLHttpRequest()
     xhr.open(method,url)
     xhr.addEventListener('readystatechange', () => {
@@ -14,8 +14,7 @@ const ajax = ({url, method = "GET"}) => {
         }
     })
     xhr.send()
-        return promise
-    }
+})}
 
 ajax({url: `${server}/posts`})
 .then(response => JSON.parse(response))
