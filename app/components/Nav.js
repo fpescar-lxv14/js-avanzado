@@ -9,9 +9,8 @@ export default function Nav(App){
         <ul>${MapLinks(links)}</ul>`,
     onclick: (e) => {
         e.preventDefault()
-        console.log(e.target)
+        if (e.target.tagName === "A") console.log(e.target)
     }
     })
-    nav.addEventListener('click', ()=>console.log("click"))
     root.appendChild(nav);
 }

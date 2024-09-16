@@ -1,9 +1,5 @@
-export function Link({text, link}){
-    return `<a href="${link}">${text}<a>`
-}
-export function MapLinks (arr, data=''){
-    arr.map((item) => data+=`
-        <li>${Link(item)}</li>
-    `)
+export const Link = ({text,link}) => `<a href="${link}">${text}<a>`
+export const MapLinks = (arr, data='') => {
+    arr.forEach(item => data+=`<li>${Link(item)}</li>`)
     return data;
 }
