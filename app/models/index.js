@@ -1,6 +1,11 @@
 export const 
     root = document.getElementById('root'),
     main = document.createElement('main'),
+    toggle = {
+        className: 'navbar-toggler navbar-toggler-icon',
+        "data-bs-target": '.navbar-nav',
+        "data-bs-toggle": 'collapse',
+    },
     links = [
         { text: "muro", link: "posts" },
         { text: "fotos", link: "albums" },
