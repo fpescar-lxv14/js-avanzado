@@ -7,9 +7,9 @@ export const
         "data-bs-toggle": 'collapse',
     },
     links = [
-        { text: "muro", link: "posts" },
-        { text: "fotos", link: "albums" },
-        { text: "amigos", link: "users" },
+        { text: "muro", link: "#posts" },
+        { text: "fotos", link: "#albums" },
+        { text: "amigos", link: "#users" },
     ],
     social = [
         { text: "facebook", link: "https://facebook.com/" },
