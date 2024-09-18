@@ -7,7 +7,7 @@ export default async function Post({ id, userId, title, body }){
     const commentsData = await Request(`https://jsonplaceholder.typicode.com/comments?postId=${id}`) ?? []
     const comments = Comments(commentsData)
 return(
-`<article class="card">
+`<article class="card p-0">
     <header class="card-header">
         <h2 class="h5">${title}</h2>
         <p class="fw-bold">Publicado por ${ username }</p>
