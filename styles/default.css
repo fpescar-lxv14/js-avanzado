@@ -1,0 +1,46 @@
+/* Caja */
+.box{
+    max-width: 720px;
+    margin: 1rem auto;
+    border-radius: 1rem 1rem 0 0;
+    border: 1rem solid #633;
+    padding: 1rem;
+    background-color: #a64;
+    box-shadow: 
+        -.5rem .5rem .5rem #333,
+        .25rem -.25rem 0 .25rem #633, /*x y blur spread color*/
+        1.5rem -1.5rem #844 inset ;
+}
+/* tablero */
+.board{
+    max-width: 540px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+/* Celdas */
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: min(4vw, 3rem);
+    min-height: min(4vw, 3rem);
+    padding: .5rem;
+}
+.cell.odd{
+    background-color: #633;
+}
+.cell.even{
+    background-color: #a66;
+}
+/* Damas */
+.checker{
+    width: min(3.75vw, 2.75rem);
+    border-radius: 50%;
+}
+.checker.black{
+    background-color: #333;
+}
+.checker.red{
+    background-color: #c33;
+}
