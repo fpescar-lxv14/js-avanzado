@@ -1,5 +1,5 @@
 import Board from "./Board.js"
-document.addEventListener('DOMContentLoaded', () => {
+export default function checkers () {
     const root = document.getElementById('root');
     const game = new Board();
     game.createBoard();
@@ -34,4 +34,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     })
-})
+}
