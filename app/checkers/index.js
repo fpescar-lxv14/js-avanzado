@@ -25,8 +25,8 @@ export default function checkers () {
         e.stopPropagation()
         if(e.target.classList.contains('cell')){
             const {row:x, col:y} = selected
-            const {row, col} = e.target.dataset
-            if (game.movePiece(x,y,row,col)){
+            const {row:toX, col:toY} = e.target.dataset
+            if (game.movePiece({x,y,toX,toY})){
                 const id = e?.dataTransfer?.getData('data') ?? selected.id
                 const checker = document.getElementById(id)
                 e.target.appendChild(checker)
@@ -36,7 +36,7 @@ export default function checkers () {
             }
         }
     }
-    const clickDrag = (e) => selected.row ? onDrop(e) : dragStart(e)
+    const clickDrag = (e) => (selected.row ? onDrop(e) : dragStart(e))
 
     document.addEventListener('click',clickDrag)
     document.addEventListener('dragstart',dragStart)

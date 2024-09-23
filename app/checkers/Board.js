@@ -12,8 +12,7 @@ export default class Board{
             children: checkAll(row,col) ? 
             new Piece({row, col, color: row < 4?'red':'black'}) : null
         })
-    ) ) 
-    console.log(this.board)
+    ) )
     }
     render(parent){
         const board = Object.assign(document.createElement('div'), {
@@ -33,7 +32,8 @@ export default class Board{
         }
         return content
     }
-    movePiece(x,y,toX,toY){
+    movePiece({color,x,y,toX,toY}){
+    if (this.board[x][y].children.color === color){
         if(
             (toX == x + 1 || toX == x - 1) &&
             (toX < 7 && toX > 0) &&
@@ -49,6 +49,7 @@ export default class Board{
             piece.children.move(toX, toY)
             return true
         }
+    }
         else return false
     }
 }
