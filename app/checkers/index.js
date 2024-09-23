@@ -4,34 +4,42 @@ export default function checkers () {
     const game = new Board();
     game.createBoard();
     game.render(root);
-    const selected = {
-        row: null,
-        col: null,
+    const selected = {}
+    const selectPiece = ({target:{id, dataset:{col,row}}}) =>{
+        selected.id = id;
+        selected.row = row;
+        selected.col = col;
     }
-    document.addEventListener('dragstart', (e) => {
+    const emptySelect = () => {
+        selected.id = null,
+        selected.row = null,
+        selected.col = null
+    }
+    const dragStart = (e) => {
         if (e.target.classList.contains('checker')) {
-            e.dataTransfer.setData('data',e.target.id)
-            const [_,row,col] = e.target.id.split("-")
-            selected.col = parseInt(col)
-            selected.row = parseInt(row)
-            console.log(game.board)
+            e?.dataTransfer?.setData('data', e.target.id)
+            selectPiece(e)
         }
-    })
-    document.addEventListener('dragover', (e) => e.preventDefault())
-    document.addEventListener('drop', (e) => {
+    }
+    const onDrop = (e) => {
         e.stopPropagation()
-        console.log(e)
-        if(
-            e.target.classList.contains('cell')
-        ){
+        if(e.target.classList.contains('cell')){
             const {row:x, col:y} = selected
             const {row, col} = e.target.dataset
             if (game.movePiece(x,y,row,col)){
-                const id = e.dataTransfer.getData('data')
+                const id = e?.dataTransfer?.getData('data') ?? selected.id
                 const checker = document.getElementById(id)
                 e.target.appendChild(checker)
-                console.log(game.board)
+                checker.dataset.row=row 
+                checker.dataset.col=col
+                emptySelect()
             }
         }
-    })
+    }
+    const clickDrag = (e) => selected.row ? onDrop(e) : dragStart(e)
+
+    document.addEventListener('click',clickDrag)
+    document.addEventListener('dragstart',dragStart)
+    document.addEventListener('dragover',(e) => e.preventDefault())
+    document.addEventListener('drop',onDrop)
 }
