@@ -1,3 +1,4 @@
+import Piece from "./Piece.js"
 const check = (x,y) => x % 2 === y % 2
 const checkRow = (n) => n < 3 || n > 4
 const checkAll = (x,y) => check(x,y) && checkRow(x)
@@ -5,16 +6,15 @@ export default class Board{
     board = []
     createBoard () {
         this.board = Array.from({length:8},(_,row) => 
-        Array.from({length: 8}, (_,col) => 
-        check(row, col) ? {
+        Array.from({length: 8}, (_,col) => ({
             row, col,
-            className: 'cell odd', 
-            children: checkRow(row) && {
-            row, col, className: 'checker '+(row<4?'red':'black')
-        } } : {
-            row, col, className: 'cell even'
-        }
-    ) ) }
+            className: 'cell '+(check(row, col) ?'odd':'even'),
+            children: checkAll(row,col) ? 
+            new Piece({row, col, color: row < 4?'red':'black'}) : null
+        })
+    ) ) 
+    console.log(this.board)
+    }
     render(parent){
         const board = Object.assign(document.createElement('div'), {
             className: 'board',
@@ -28,12 +28,7 @@ export default class Board{
             const { children:c } = cell
             content+=`
             <div class="${cell.className}" data-row="${cell.row}" data-col="${cell.col}">
-            ${c ? `
-            <img id="checker-${c.row}-${c.col}"
-                class="${c.className}" 
-                src="/assets/checker.svg" 
-                alt="${c.row}-${c.col}"
-                draggable="true">` : ''}
+                ${c ? c.render() : '' } 
             </div>`
         }
         return content
@@ -50,6 +45,8 @@ export default class Board{
 
             this.board[toX][toY] = piece
             this.board[x][y] = movedPieced
+            
+            piece.children.move(toX, toY)
             return true
         }
         else return false
