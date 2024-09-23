@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+    <style>
+        .checker{
+            stroke: #ccc8;
+            stroke-width: .5rem;
+            fill: transparent;
+        }
+    </style>
+    <circle class="checker" cx="150"  cy="150" r="140"/>
+    <circle class="checker" cx="150"  cy="150" r="120"/>
+    <circle class="checker" cx="150"  cy="150" r="100"/>
+    <polygon class="checker" points="
+        150,75
+        125,140
+        75,112
+        102,212.5
+        198,212.5 
+        225,112
+        175,140 
+        150,75"/>
+</svg>
