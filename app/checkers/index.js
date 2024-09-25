@@ -1,8 +1,8 @@
-import Board from "./Board.js"
+import Game from "./Game.js"
 export default function checkers () {
     const root = document.getElementById('root');
-    const game = new Board();
-    game.createBoard();
+    const game = new Game();
+    game.start();
     game.render(root);
     const selected = {}
     const selectPiece = ({target:{id, dataset:{col,row}}}) =>{
@@ -36,7 +36,7 @@ export default function checkers () {
             }
         }
     }
-    const clickDrag = (e) => (selected.row ? onDrop(e) : dragStart(e))
+    const clickDrag = (e) => (selected.id ? onDrop(e) : dragStart(e))
 
     document.addEventListener('click',clickDrag)
     document.addEventListener('dragstart',dragStart)

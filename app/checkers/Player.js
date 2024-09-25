@@ -7,7 +7,7 @@ export default class Player{
         this.status = null
     }
     changeTurn(){
-        return this.isTurn != this.isTurn;
+        return this.isTurn = !this.isTurn;
     }
     checkStatus(rivalCheckers){
         if (!this.checkers.length){
@@ -24,5 +24,13 @@ export default class Player{
         this.checkers = 12
         this.isTurn = false;
         this.status = null
+    }
+    render(userData=''){
+        Object.keys(this).map(k => userData+=`
+        <li> 
+            <strong>${k}:</strong> 
+            ${this[k]}
+        </li>`)
+        return `<ul>${userData}</ul>`
     }
 }

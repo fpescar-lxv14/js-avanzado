@@ -1,7 +1,6 @@
 import Piece from "./Piece.js"
-const check = (x,y) => x % 2 === y % 2
-const checkRow = (n) => n < 3 || n > 4
-const checkAll = (x,y) => check(x,y) && checkRow(x)
+import { check, checkAll, isValidMove } from "./utils.js"
+
 export default class Board{
     board = []
     createBoard () {
@@ -32,14 +31,10 @@ export default class Board{
         }
         return content
     }
-    movePiece({color,x,y,toX,toY}){
+    movePiece({color='black',...coords}){
+    const { x, y, toX, toY} = coords
     if (this.board[x][y].children.color === color){
-        if(
-            (toX == x + 1 || toX == x - 1) &&
-            (toX < 7 && toX > 0) &&
-            (toY == y + 1 || toY == y - 1) &&
-            (toY < 7 && toY > 0)
-        ){
+        if(isValidMove(coords)){
             const piece = this.board[x][y]
             const movedPieced = this.board[toX][toY]
 
