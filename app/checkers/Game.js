@@ -16,7 +16,7 @@ export default class Game{
         const game = Object.assign(document.createElement('section'),{
             innerHTML: `
             <div class="player">
-                ${this.players.map(p => p.render())}
+                ${this.players.map(p => p.render()).join().replace(",","")}
             </div>
             <div class="board">
                 ${this.board.renderCells()}
