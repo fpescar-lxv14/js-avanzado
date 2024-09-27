@@ -1,0 +1,15 @@
+@mixin layout(
+    $dir: row,
+    $j: center,
+    $a: stretch,
+    $w: wrap,
+    $d:flex,
+    $jp: content,
+    $ap: items
+    ){
+    display: $d;
+    flex-direction: $dir;
+    justify-#{$jp}: $j;
+    align-#{$ap}: $a;
+    flex-wrap: $w;
+}

@@ -1,0 +1,24 @@
+$a: align;
+$c: content;
+$i: items;
+$j: justify;
+$s: space;
+
+$directions: row, column, row-reverse, column-reverse;
+$content: start, center, end, #{$s}-between, #{$s}-around, #{$s}-evenly, stretch, baseline;
+$wrap: wrap, nowrap, wrap-reverse;
+
+$properties: (
+    flex       (flex-direction: $directions),
+    flex       (flex-wrap: $wrap),
+    flex-#{$j} (#{$j}-#{$c}: $content),
+    flex-#{$a} (#{$a}-#{$i}: $content),
+    grid-#{$j} (#{$j}-#{$i}: $content),
+    grid-#{$a} (#{$a}-#{$c}: $content),
+);
+
+@each $class, $props in $properties {
+@each $attr, $values in $props {
+@each $v in $values {
+    .#{$class}-#{$v}{ #{$attr}: $v; }
+}}}
