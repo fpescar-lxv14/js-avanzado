@@ -1,14 +1,17 @@
-import Clock from "./Clock.js";
+import Chron from "./Chron.js";
+import Timer from "./Timer.js";
+
 export default function renderClock(){
+    let clock, interval;
 const root = document.getElementById('root');
-const clockContainer = document.createElement('div')
-const clock = new Clock();
-clockContainer.innerHTML = `
-    <p id="clock"></p>
+const clockBox = document.createElement('div')
+clockBox.setAttribute('id','clock-time')
+clockBox.innerHTML = `
+    <p id="clock">00:00:00</p>
     <input class="time" type="number" id="HH" name="HH">
     <input class="time" type="number" id="mm" name="mm">
     <input class="time" type="number" id="ss" name="ss">
-    <select class="controls">
+    <select id="select" class="controls">
         <option value="0">Cronometro</option>
         <option value="1">Temporizador</option>
     </select>
@@ -18,11 +21,22 @@ clockContainer.innerHTML = `
         <button id="stop">Detener</button>
     </div>
 `
-clockContainer.addEventListener('click', (e) => console.log("click", e.target.id))
-clockContainer.addEventListener('input', (e) => {
-    console.log("input", e.target.value)
-    clock[e.target.id] = e.target.value
-    console.log(clock)
-})
-document.getElementById('root').appendChild(clockContainer)
+function stop(){
+    clearInterval(interval);
+}
+function setInput (e){
+    const {clock:c, HH, mm, ss, select} = clockBox.children
+    const ClassObject = select.value == 0 ? Chron : Timer
+    clock = new ClassObject(HH.value, mm.value, ss.value)
+    c.innerHTML = clock.showTime()
+}
+
+function setClick (){
+
+}
+
+
+clockBox.addEventListener('click', (e) => console.log("click", e.target.id))
+clockBox.addEventListener('input', setInput)
+root.appendChild(clockBox)
 }
