@@ -14,6 +14,7 @@ export default class Game{
     }
     render(){
         const game = Object.assign(document.createElement('section'),{
+            id: 'checkers-game',
             innerHTML: `
             <div class="player">
                 Turno: ${this.players[this.current].name}
