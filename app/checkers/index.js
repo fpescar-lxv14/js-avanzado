@@ -26,7 +26,7 @@ export default function checkers () {
         if(e.target.classList.contains('cell')){
             const {row:x, col:y} = selected
             const {row:toX, col:toY} = e.target.dataset
-            if (game.movePiece({x,y,toX,toY})){
+            if (game.playerMove({x,y,toX,toY})){
                 const id = e?.dataTransfer?.getData('data') ?? selected.id
                 const checker = document.getElementById(id)
                 e.target.appendChild(checker)

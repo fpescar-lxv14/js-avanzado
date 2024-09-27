@@ -31,9 +31,8 @@ export default class Board{
         }
         return content
     }
-    movePiece({color='black',...coords}){
-    const { x, y, toX, toY} = coords
-    if (this.board[x][y].children.color === color){
+    movePiece(coords){
+        const { x, y, toX, toY} = coords
         if(isValidMove(coords)){
             const piece = this.board[x][y]
             const movedPieced = this.board[toX][toY]
@@ -44,7 +43,6 @@ export default class Board{
             piece.children.move(toX, toY)
             return true
         }
-    }
-        else return false
-    }
+            else return false
+        }
 }

@@ -3,11 +3,7 @@ export default class Player{
         this.name = name;
         this.color = color; 
         this.checkers = checkers
-        this.isTurn = false;
         this.status = null
-    }
-    changeTurn(){
-        return this.isTurn = !this.isTurn;
     }
     checkStatus(rivalCheckers){
         if (!this.checkers.length){
@@ -22,7 +18,6 @@ export default class Player{
     }
     init(){
         this.checkers = 12
-        this.isTurn = false;
         this.status = null
     }
     render(userData=''){

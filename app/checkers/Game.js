@@ -7,15 +7,16 @@ export default class Game{
         new Player('p1'),
         new Player('p2','red')
     ]
+    current = 1;
     start(){
         this.board.createBoard()
-        this.players.forEach(p => p.init());
-        this.players[0].changeTurn()
+        this.players.forEach(p => p.init())
     }
     render(){
         const game = Object.assign(document.createElement('section'),{
             innerHTML: `
             <div class="player">
+                Turno: ${this.players[this.current].name}
                 ${this.players.map(p => p.render()).join().replace(",","")}
             </div>
             <div class="board">
@@ -31,10 +32,12 @@ export default class Game{
         })
         root.appendChild(game)
     }
-    playerMove({coords}){
-        if (this.players.map(p => {
-            p.isTurn && this.board.movePiece({color:p.color, ...coords})
-            return true
-        })) this.players.forEach(p => p.changeTurn())
-    }
-}
+    playerMove(coords){
+    this.players.map((p,i) => {
+    if (this.current == i) {
+        const {color} = this.players[i]
+        this.board.movePiece({...coords, color})
+        this.current != this.current
+        return true;
+    }}
+)}}
