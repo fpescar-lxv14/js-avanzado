@@ -3,3 +3,9 @@
     perspective: 25rem;
     perspective-origin: top center;
 }
+#root > :is(div, section){
+    display: none;
+}
+#root > :is(div,section):target{
+    display: grid;
+}

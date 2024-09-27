@@ -1,0 +1,10 @@
+nav{
+    @extend .flex-justify-space-between, .flex-align-center;
+    display: flex;
+    padding: .5rem;
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
