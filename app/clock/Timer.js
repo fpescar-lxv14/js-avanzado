@@ -8,6 +8,9 @@ export default class Timer extends Clock{
     check(u){
         return this[u] <= this.limit;
     }
+    arrayCheck(args){
+        for(let u of args) return this.check(u)
+    }
     setMessage(msg){
         this.message = msg
     }
@@ -15,7 +18,7 @@ export default class Timer extends Clock{
         this.rigntone = src
     }
     alarmCheck(){
-        return this.check("HH","mm","ss")
+        return this.arrayCheck("HH","mm","ss")
     }
     alarmClock(){
         this.runClock(-1)
