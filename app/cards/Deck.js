@@ -23,6 +23,7 @@ export default class Deck {
             cardBox+=`
             <li class="card ${card.color}" 
                 data-suite="${card.suite}"
+                data-value="${card.value}"
                 draggable="true">
                 ${card.symbol}
             </li>
@@ -30,16 +31,22 @@ export default class Deck {
         }
         cardBox+=`</ul>
         <div class="card-mat">
-            <ul class="card-space occupied" >
-                <li class="card red" data-suite="♦">
-                    10
-                </li>
-            </ul>
             <ul class="card-space"></ul>
             <ul class="card-space"></ul>
             <ul class="card-space"></ul>
             <ul class="card-space"></ul>
+            <ul class="card-space"></ul>
+        </div>
+        <div class="controls">
+            <button id="newGame">Nuevo Juego</button>
+            <button disabled id="makeBet">Apostar</button>
+            <button disabled id="hit">Pedir Carta</button>
+            <button disabled id="stay">Quedarse</button>
+            <button disabled id="fold">Abandonar</button>
         </div>`
         return cardBox
+    }
+    getCard(){
+        return this.cards.pop()
     }
 }
