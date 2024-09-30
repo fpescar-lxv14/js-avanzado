@@ -13,3 +13,8 @@
     align-#{$ap}: $a;
     flex-wrap: $w;
 }
+@mixin pseudo($content, $type:before){
+    &::#{$type}{
+        content: $content;
+    }
+}

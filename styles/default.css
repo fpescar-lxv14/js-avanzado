@@ -345,4 +345,62 @@ nav ul {
   transform: translateY(0);
 }
 
+.card::after, .card::before {
+  position: absolute;
+  font-size: 1.75rem;
+  line-height: 1rem;
+  margin: 0.5rem;
+}
+
+.card::before {
+  top: 0;
+  left: 0;
+}
+
+.card::after {
+  bottom: 0;
+  right: 0;
+}
+
+.black {
+  --color: #333;
+}
+
+.red {
+  --color: #c33;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 6rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid #ccc;
+  font-size: 2.5rem;
+  color: transparent;
+  background-color: #fff;
+  transform: rotateX(180deg);
+  background: repeating-linear-gradient(to top right, rgba(34, 68, 136, 0.5333333333) 5%, rgba(255, 255, 255, 0.6666666667) 10%), repeating-linear-gradient(to top left, rgba(34, 68, 136, 0.5333333333) 5%, rgba(255, 255, 255, 0.6666666667) 10%);
+}
+.card::before {
+  content: attr(data-suite);
+}
+.card::after {
+  content: attr(data-suite);
+}
+.card-mat {
+  background: linear-gradient(#3c6, #284);
+}
+.card-space {
+  width: 7rem;
+  height: 9rem;
+  border-radius: 0.25rem;
+  border: 0.5rem solid #fff;
+}
+
 /*# sourceMappingURL=default.css.map */

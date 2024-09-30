@@ -1,0 +1,55 @@
+%pseudo{
+    position: absolute;
+    font-size: 1.75rem;
+    line-height: 1rem;
+    margin: .5rem;
+}
+%top-left{
+    @extend %pseudo;
+    top: 0;
+    left: 0;
+}
+%bottom-right{
+    @extend %pseudo;
+    bottom: 0;
+    right: 0;
+}
+.black{
+    --color: #333;
+}
+.red{
+    --color: #c33;
+}
+.card{
+    @include layout($a: center);
+    @include pseudo(attr(data-suite));
+    @include pseudo(attr(data-suite), after);
+    position: absolute;
+    width: 6rem;
+    height: 8rem;
+    border-radius: .5rem;
+    border: .25rem solid #ccc;
+    font-size: 2.5rem;
+    color: transparent;
+    background-color: #fff;
+    transform: rotateX(180deg);
+    background: 
+        repeating-linear-gradient(to top right, #2488 5%,#fffa 10%),
+        repeating-linear-gradient(to top left, #2488 5%, #fffa 10%),
+        ;
+    &::before{
+        @extend %top-left;
+    }
+    &::after{
+        @extend %bottom-right;
+    }
+    &-mat{
+        background: linear-gradient(#3c6, #284);
+    }
+    &-space{
+        width: 7rem;
+        height: 9rem;
+        border-radius: .25rem;
+        border: .5rem solid #fff;
+    }
+}
