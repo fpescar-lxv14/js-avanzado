@@ -14,7 +14,7 @@
   flex-direction: column-reverse;
 }
 
-.flex-wrap {
+.flex-wrap, .card-mat {
   flex-wrap: wrap;
 }
 
@@ -30,7 +30,7 @@
   justify-content: start;
 }
 
-.flex-justify-center {
+.flex-justify-center, .card-mat {
   justify-content: center;
 }
 
@@ -154,8 +154,18 @@
   align-content: baseline;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
 #root {
-  padding: 1rem;
+  padding: 0.5rem;
   perspective: 25rem;
   perspective-origin: top center;
 }
@@ -170,7 +180,18 @@
 
 nav {
   display: flex;
-  padding: 0.5rem;
+  gap: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  nav {
+    justify-content: flex-start;
+  }
+  nav ul {
+    display: flex;
+    width: auto;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
 }
 
 nav ul {
@@ -379,13 +400,16 @@ nav ul {
   position: absolute;
   width: 6rem;
   height: 8rem;
+  top: 1rem;
+  left: 1rem;
   border-radius: 0.5rem;
   border: 0.25rem solid #ccc;
   font-size: 2.5rem;
   color: transparent;
   background-color: #fff;
-  transform: rotateX(180deg);
+  transform: rotateY(180deg);
   background: repeating-linear-gradient(to top right, rgba(34, 68, 136, 0.5333333333) 5%, rgba(255, 255, 255, 0.6666666667) 10%), repeating-linear-gradient(to top left, rgba(34, 68, 136, 0.5333333333) 5%, rgba(255, 255, 255, 0.6666666667) 10%);
+  transition: all 0.5s linear;
 }
 .card::before {
   content: attr(data-suite);
@@ -394,13 +418,41 @@ nav ul {
   content: attr(data-suite);
 }
 .card-mat {
+  list-style: none;
+  display: flex;
+  padding: 1rem;
+  gap: 0.5rem;
   background: linear-gradient(#3c6, #284);
 }
 .card-space {
-  width: 7rem;
-  height: 9rem;
+  position: relative;
+  width: 7.5rem;
+  height: 9.5rem;
+  margin: 0;
   border-radius: 0.25rem;
   border: 0.5rem solid #fff;
+}
+.card-space .card {
+  top: 0.25rem;
+  left: 0.25rem;
+  transform: rotate(0);
+  color: var(--color);
+  background: #eee;
+}
+.card-box {
+  cursor: pointer;
+  position: relative;
+  background-color: #842;
+  width: 17rem;
+  height: 12rem;
+  border-radius: 0.5rem;
+  border: 1rem solid #421;
+  box-shadow: 0.5rem 0.5rem #632 inset, 0.25rem 0.25rem 0.5rem #333;
+}
+.card-box:hover .card:last-child {
+  transform: translate(110%) rotateY(0);
+  color: var(--color);
+  background: #eee;
 }
 
 /*# sourceMappingURL=default.css.map */

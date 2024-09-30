@@ -27,16 +27,19 @@
     position: absolute;
     width: 6rem;
     height: 8rem;
+    top: 1rem;
+    left: 1rem;
     border-radius: .5rem;
     border: .25rem solid #ccc;
     font-size: 2.5rem;
     color: transparent;
     background-color: #fff;
-    transform: rotateX(180deg);
+    transform: rotateY(180deg);
     background: 
         repeating-linear-gradient(to top right, #2488 5%,#fffa 10%),
         repeating-linear-gradient(to top left, #2488 5%, #fffa 10%),
         ;
+    transition: all .5s linear;
     &::before{
         @extend %top-left;
     }
@@ -44,12 +47,43 @@
         @extend %bottom-right;
     }
     &-mat{
+        @extend .flex-wrap, .flex-justify-center;
+        list-style: none;
+        display: flex;
+        padding: 1rem;
+        gap: .5rem;
         background: linear-gradient(#3c6, #284);
     }
     &-space{
-        width: 7rem;
-        height: 9rem;
+        position: relative;
+        width: 7.5rem;
+        height: 9.5rem;
+        margin: 0;
         border-radius: .25rem;
         border: .5rem solid #fff;
+        & .card{
+            top: .25rem;
+            left: .25rem;
+            transform: rotate(0);
+            color: var(--color);
+            background: #eee;
+        }
+    }
+    &-box{
+        cursor: pointer;
+        position: relative;
+        background-color: #842;
+        width: 17rem;
+        height: 12rem;
+        border-radius: .5rem;
+        border: 1rem solid #421;
+        box-shadow: 
+            .5rem .5rem #632 inset,
+            .25rem .25rem .5rem #333;
+        &:hover .card:last-child{
+            transform: translate(110%) rotateY(0);
+            color: var(--color);
+            background: #eee;
+        }
     }
 }

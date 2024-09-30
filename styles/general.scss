@@ -1,5 +1,13 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+}
 #root{
-    padding: 1rem;
+    padding: .5rem;
     perspective: 25rem;
     perspective-origin: top center;
 }
