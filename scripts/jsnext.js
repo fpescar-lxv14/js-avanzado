@@ -29,8 +29,6 @@ const roles = [
     },
     {  rol:INVITED, msg: "tiene acceso limitado a visualizacion"
     },
-    { rol:EXTRA, msg: "tiene un papel nuevo en el juego"
-    }
 ]
 function checkUser ({username:u, rol:r}){
     const notFound = "no posee un rol definido por la aplicacion"
@@ -38,3 +36,41 @@ function checkUser ({username:u, rol:r}){
     return `El usuario ${u} ${match?.msg ?? notFound}`
 }
 users.forEach((user) => console.log(checkUser(user)))
+
+/**
+ * Proxy:
+ * Objeto interceptor
+ * Crea una copia de otro objeto
+ * Aplica logica a los getters y setters
+ * Ideal para definir logica en objetos
+ */
+const target = {
+    username: "cristian Racedo",
+    email: "cristian@hotmail.com",
+    password: "1234"
+}
+const validity = {
+    text: /\w*/,
+    username: /^\w{4,20}$/,
+    email: /^(?=^@)\w+@\w+(\.\w+)+$/,
+    phone: /^(\d{6,25}|\(\d{2,6}\)(\s*\-*\d{2,4}){2,4})$/,
+    password: /^((?=.[A-Z]+)(?=.[a-z]+)(?=.\d+)(?=.[@#!$+-_]+)).{8,}$/,
+    website: /^http(s){0,1}:\/\/\S+(\.\S+){1,}$/,
+    credit: /^((?=^\-)(\d{4})){4}/
+}
+const handler = {
+    get: (obj,k) => {
+        if (k in obj){
+            if(!/admin|role|status/.test(k)) return obj[k]
+            else return `no tiene permisos para acceder a este valor`
+        }
+        else return `la propiedad ${k} no existe`
+    },
+    set: (obj,k,v) => {
+        if(k in obj){
+            if(validity[k].test(v)) obj[k] = v
+        }
+        else return "no se puede definir la propiedad " + k 
+    }
+}
+const userProxy = (target) => new Proxy(target, handler)
