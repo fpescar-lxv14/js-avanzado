@@ -22,17 +22,19 @@ const users = [
     { username: 'Simmons_Al', rol: INVITED },
     { username: 'Malevolgia', rol: Symbol('admin') },
 ]
-function checkUser (user){
-    if (user.rol === ADMIN){
-        console.log(`El usuario ${user.username} tiene control total, creacion y eliminacion de usuario`)
+const roles = [
+    {  rol: ADMIN, msg:"tiene control total, creacion y eliminacion de usuario" 
+    },
+    {  rol:USER, msg: "tiene control de perfil y visualizacion de otros usuarios" 
+    },
+    {  rol:INVITED, msg: "tiene acceso limitado a visualizacion"
+    },
+    { rol:EXTRA, msg: "tiene un papel nuevo en el juego"
     }
-    else if (user.rol === USER){
-        console.log(`El usuario ${user.username} tiene control de perfil y visualizacion de otros usuarios`)
-    }
-    else if (user.rol === INVITED){
-        console.log(`El usuario ${user.username} tiene acceso limitado a visualizacion`)
-    }
-    else {
-        console.log(`El usuario ${user.username} no posee un rol definido por la aplicacion`)
-    }
+]
+function checkUser ({username:u, rol:r}){
+    const notFound = "no posee un rol definido por la aplicacion"
+    const match = roles.find(({rol}) => rol === r)
+    return `El usuario ${u} ${match?.msg ?? notFound}`
 }
+users.forEach((user) => console.log(checkUser(user)))
